@@ -1,0 +1,23 @@
+body{
+
+    background:#202225;
+
+}
+
+.card{
+
+    border-radius:20px;
+
+}
+
+h2{
+
+    font-weight:bold;
+
+}
+
+textarea{
+
+    resize:none;
+
+}
