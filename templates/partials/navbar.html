@@ -1,12 +1,22 @@
 <nav class="navbar">
 
-    <div>
+    <div class="nav-left">
 
-        <h4>🐱 Meow Meow Control Panel</h4>
+        <button id="menu-toggle" class="menu-btn">
+
+            ☰
+
+        </button>
+
+        <span class="brand">
+
+            🐱 Meow Meow
+
+        </span>
 
     </div>
 
-    <div>
+    <div class="nav-right">
 
         👤 {{ session.get("user", {}).get("username", "Khách") }}
 
