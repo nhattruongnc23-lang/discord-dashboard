@@ -36,12 +36,11 @@ document.addEventListener("click", (e) => {
 });
 
 // ==========================
-// Thành phần Dashboard
+// Dashboard
 // ==========================
 
 const guildList = document.getElementById("guild-list");
 const channelList = document.getElementById("channel-list");
-
 const messageBox = document.getElementById("message");
 const sendBtn = document.getElementById("send");
 const statusBox = document.getElementById("send-status");
@@ -50,7 +49,7 @@ let selectedGuild = "";
 let selectedChannel = "";
 
 // ==========================
-// Hiển thị thông báo
+// Thông báo
 // ==========================
 
 function showStatus(text, type) {
@@ -74,12 +73,12 @@ function showStatus(text, type) {
 }
 
 // ==========================
-// Tải Server
+// Server
 // ==========================
 
 async function loadGuilds() {
 
-    guildList.innerHTML = "Đang tải máy chủ...";
+    guildList.innerHTML = "Đang tải...";
 
     try {
 
@@ -91,7 +90,7 @@ async function loadGuilds() {
 
         if (guilds.length === 0) {
 
-            guildList.innerHTML = "Không có máy chủ.";
+            guildList.innerHTML = "Không có Server.";
 
             return;
 
@@ -127,9 +126,11 @@ async function loadGuilds() {
 
     }
 
-    catch {
+    catch (err) {
 
-        guildList.innerHTML = "❌ Không thể tải danh sách máy chủ.";
+        guildList.innerHTML = "❌ Không thể tải Server.";
+
+        console.error(err);
 
     }
 
@@ -145,11 +146,7 @@ function selectGuild(id, element) {
 
     document
         .querySelectorAll("#guild-list .list-item")
-        .forEach(item => {
-
-            item.classList.remove("active");
-
-        });
+        .forEach(item => item.classList.remove("active"));
 
     element.classList.add("active");
 
@@ -158,12 +155,12 @@ function selectGuild(id, element) {
 }
 
 // ==========================
-// Tải Channel
+// Channel
 // ==========================
 
 async function loadChannels(guildId) {
 
-    channelList.innerHTML = "Đang tải kênh...";
+    channelList.innerHTML = "Đang tải...";
 
     try {
 
@@ -175,7 +172,7 @@ async function loadChannels(guildId) {
 
         if (channels.length === 0) {
 
-            channelList.innerHTML = "Không có kênh.";
+            channelList.innerHTML = "Không có Kênh.";
 
             return;
 
@@ -201,9 +198,11 @@ async function loadChannels(guildId) {
 
     }
 
-    catch {
+    catch (err) {
 
-        channelList.innerHTML = "❌ Không thể tải kênh.";
+        channelList.innerHTML = "❌ Không thể tải Kênh.";
+
+        console.error(err);
 
     }
 
@@ -219,25 +218,21 @@ function selectChannel(id, element) {
 
     document
         .querySelectorAll("#channel-list .list-item")
-        .forEach(item => {
-
-            item.classList.remove("active");
-
-        });
+        .forEach(item => item.classList.remove("active"));
 
     element.classList.add("active");
 
 }
 
 // ==========================
-// Gửi thông báo
+// Gửi
 // ==========================
 
 async function sendMessage() {
 
     if (!selectedChannel) {
 
-        showStatus("❌ Vui lòng chọn một kênh.", "error");
+        showStatus("❌ Vui lòng chọn Kênh.", "error");
 
         return;
 
@@ -245,7 +240,7 @@ async function sendMessage() {
 
     if (!messageBox.value.trim()) {
 
-        showStatus("❌ Nội dung không được để trống.", "error");
+        showStatus("❌ Chưa nhập nội dung.", "error");
 
         return;
 
@@ -283,11 +278,60 @@ async function sendMessage() {
 
             messageBox.value = "";
 
-            showStatus("✅ Đã gửi thông báo thành công.", "success");
+            showStatus("✅ Đã gửi thành công.", "success");
 
-        } else {
+        }
+
+        else {
 
             showStatus(
 
-                "❌ " + (data.error || "Gửi thất bại."
+                "❌ " + (data.error || "Gửi thất bại."),
 
+                "error"
+
+            );
+
+        }
+
+    }
+
+    catch (err) {
+
+        console.error(err);
+
+        showStatus(
+
+            "❌ Không thể kết nối tới máy chủ.",
+
+            "error"
+
+        );
+
+    }
+
+    sendBtn.disabled = false;
+
+    sendBtn.innerHTML = "📨 Gửi thông báo";
+
+}
+
+if (sendBtn) {
+
+    sendBtn.addEventListener("click", sendMessage);
+
+}
+
+// ==========================
+// Khởi động
+// ==========================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    if (guildList) {
+
+        loadGuilds();
+
+    }
+
+});

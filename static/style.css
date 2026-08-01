@@ -457,14 +457,17 @@ SCROLLBAR
 ==========================*/
 
 ::-webkit-scrollbar{
-
     width:8px;
-
 }
 
 ::-webkit-scrollbar-thumb{
+    background:#4b5367;
+    border-radius:20px;
+}
 
-    background:#4b536
+::-webkit-scrollbar-track{
+    background:#1b1e27;
+}
 
 /* ==========================
    Danh sách Server / Kênh

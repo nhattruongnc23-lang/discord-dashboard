@@ -1,3 +1,4 @@
+
 {% extends "layout/base.html" %}
 
 {% block title %}
@@ -11,48 +12,47 @@ Bảng điều khiển Meow Meow
     <div class="card-body">
 
         <h2 class="text-center mb-4">
-
             🐱 Bảng điều khiển Meow Meow
-
         </h2>
+
+        <!-- Danh sách Server -->
 
         <div class="mb-3">
 
             <label class="form-label">
-               🖥 Máy chủ
-                </label>
+                🖥 Máy chủ
+            </label>
 
-   <div id="guild-list" class="list-box">
-           Đang tải...
-             </div>
+            <div id="guild-list" class="list-box">
+
+                Đang tải...
+
+            </div>
 
         </div>
 
+        <!-- Danh sách Channel -->
+
         <div class="mb-3">
 
             <label class="form-label">
-
                 💬 Kênh
-
             </label>
 
             <div id="channel-list" class="list-box">
 
+                Đang tải danh sách kênh...
 
-                    Đang tải danh sách kênh...
-
-                </div>
-
-            </select>
+            </div>
 
         </div>
+
+        <!-- Nội dung -->
 
         <div class="mb-3">
 
             <label class="form-label">
-
                 📝 Nội dung thông báo
-
             </label>
 
             <textarea
@@ -64,6 +64,8 @@ Bảng điều khiển Meow Meow
 
         </div>
 
+        <!-- Nút gửi -->
+
         <button
             class="btn btn-warning w-100"
             id="send">
@@ -72,7 +74,9 @@ Bảng điều khiển Meow Meow
 
         </button>
 
-        div id="send-status"></div>
+        <!-- Thông báo -->
+
+        <div id="send-status"></div>
 
     </div>
 
