@@ -322,6 +322,35 @@ if (sendBtn) {
 
 }
 
+
+
+// ==========================
+// Thu gọn / Mở rộng danh sách
+// ==========================
+
+function toggleList(id, header){
+
+    const list = document.getElementById(id);
+
+    const arrow = header.querySelector(".arrow");
+
+    list.classList.toggle("hide");
+
+    if(list.classList.contains("hide")){
+
+        arrow.innerHTML = "▶";
+
+    }else{
+
+        arrow.innerHTML = "▼";
+
+    }
+
+}
+
+
+
+
 // ==========================
 // Khởi động
 // ==========================

@@ -566,3 +566,109 @@ SCROLLBAR
         0 0 18px #ff5b5b;
 
 }
+
+/* ==========================
+   Dropdown Server / Channel
+========================== */
+
+.section-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 18px;
+
+    background:#2b3140;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+    font-weight:bold;
+
+    transition:.25s;
+
+    margin-bottom:10px;
+
+}
+
+.section-header:hover{
+
+    background:#343c4f;
+
+}
+
+.arrow{
+
+    font-size:18px;
+
+    transition:.25s;
+
+}
+
+/* Danh sách */
+
+.list-box{
+
+    background:#20232d;
+
+    border:1px solid #3b3f55;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    max-height:500px;
+
+    transition:max-height .35s ease;
+
+}
+
+.list-box.hide{
+
+    max-height:0;
+
+    border:none;
+
+    overflow:hidden;
+
+}
+
+.list-item{
+
+    padding:14px 18px;
+
+    border-bottom:1px solid #31354a;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.list-item:last-child{
+
+    border-bottom:none;
+
+}
+
+.list-item:hover{
+
+    background:#2f3548;
+
+}
+
+.list-item.active{
+
+    background:#4f7cff;
+
+    color:white;
+
+    font-weight:bold;
+
+}
