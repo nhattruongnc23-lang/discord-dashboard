@@ -21,13 +21,13 @@ DEBUG = False
 # Dashboard
 # ===========================
 
-PASSWORD = os.getenv("PASSWORD", "123456")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "123456")
 
 # ===========================
 # Application
 # ===========================
 
-APP_NAME = "Discord Dashboard"
+APP_NAME = "Meow Meow Control Panel"
 VERSION = "1.0.0"
 
 # Flask Secret Key
